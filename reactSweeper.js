@@ -1,5 +1,4 @@
-/* global React */
-/* global Minesweeper */
+var React = window.React;
 
 var Tile = React.createClass({
   handleClick: function(event) {
@@ -8,7 +7,6 @@ var Tile = React.createClass({
     this.props.UpdateGame(pos, altKey);
   },
   render: function() {
-    var tileClass = "";
     var text, klass;
     var square = this.props.tile;
     if (square.explored && square.bombed){
@@ -34,10 +32,10 @@ var Tile = React.createClass({
 var Board = React.createClass({
   render: function() {
     return (<div>{
-      this.props.board.map(function(row, rowIdx) {
-        return (<div className={'row'} key={rowIdx}>
+      this.props.board.grid.map(function(row, rowIdx) {
+        return (<div className={'row'} key={'row_' + rowIdx}>
           {row.map(function(tile, colIdx){
-            return (<Tile key={colIdx}
+            return (<Tile key={'col_' + colIdx}
                          tile={tile}
                          position={[rowIdx, colIdx]}
                          UpdateGame={this.props.UpdateGame} />);
@@ -108,7 +106,8 @@ var Game = React.createClass ({
       active = true;
     }
     return (<div>
-              <Board board={this.state.board.grid} UpdateGame={this.UpdateGame} />
+              <Modal content={content} active={active} clickHandler={this.restartGame} />
+              <Board board={this.state.board} UpdateGame={this.UpdateGame} />
             </div>);
   }
 });
