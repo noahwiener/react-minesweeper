@@ -1,2 +1,0 @@
-/* global React */
-/* global Minesweeper */
