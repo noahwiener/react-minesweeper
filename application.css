@@ -1,0 +1,92 @@
+.square {
+  float: left;
+
+  border-style: outset;
+  height: 20px;
+  width: 20px;
+  background-color: lightgrey;
+  text-align: center;
+  padding: 2px;
+  margin: 0px;
+}
+
+div#minesweeper {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+div.row {
+  width: 300px;
+  margin: 30px auto;
+}
+.flagged {
+  color: red;
+}
+
+.bombed {
+  color: red;
+}
+
+.explored {
+  border-style: inset;
+}
+
+.inactive {
+  position: absolute;
+  display: none;
+}
+
+.active{
+  position: absolute;
+  margin: auto;
+  display: block;
+  height: 200px;
+  width: 300px;
+  background-color: white;
+  border: 2px solid black;
+  opacity: .8;
+  z-index: 50;
+
+}
+
+cf:after {
+  content: "";
+  display: block;
+  clear:both;
+}
+
+.modal {
+    display: none;
+  }
+
+.modal button {
+  display: block;
+  margin: 0 auto;
+}
+  .modal.active {
+    display: block;
+  }
+  .modal-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .modal-content {
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 50px;
+    margin-left: -250px;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 5px;
+  }

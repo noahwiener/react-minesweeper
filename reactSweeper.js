@@ -59,7 +59,6 @@ var Modal = React.createClass ({
     }
       displayClass = displayClass + active;
       containerClass = containerClass + active;
-      debugger;
       return (<div className={containerClass}>
       <div className={displayClass}>
               {this.props.content}
@@ -109,8 +108,7 @@ var Game = React.createClass ({
       active = true;
     }
     return (<div>
-              <Modal content={content} active={active} clickHandler={this.restartGame} />
-              <Board board={this.state.board} UpdateGame={this.UpdateGame} />
+              <Board board={this.state.board.grid} UpdateGame={this.UpdateGame} />
             </div>);
   }
 });
